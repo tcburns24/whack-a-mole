@@ -8,6 +8,8 @@ var timeRemaining = 15;
 var score_count = document.getElementById('score_count');
 var points = 0;
 var nums = document.getElementsByClassName('num');
+var gameOver = document.getElementById('game_over');
+var play_again_btn = document.getElementById('play_again_btn');
 
 function randomTime(min, max) {
 	return Math.round(Math.random() * (max - min) + min);
@@ -49,6 +51,11 @@ function startCountdown() {
 	for (var i=0; i<nums.length; i++) {
 		nums[i].style.display = 'inline-block';
 	}
+	nums[3].style.color = 'black';
+	nums[3].style.fontSize = '90px';
+	nums[3].style.opacity = '0.3';
+	nums[3].textContent = 'whack';
+	
   nums[0].style.fontSize = '110px';
   nums[0].style.opacity = '1.0';
   setTimeout(function() {
@@ -88,20 +95,25 @@ function startCountdown() {
 
 
 // START GAME:
-btn.addEventListener('click', function() {
-	console.log('ok, here we go');
-	startCountdown();
+function startGame() {
+	timeRemaining = 15;
+	points = 0;
 	score_count.textContent = points;
 	stopGame = false;
+	startCountdown();
 	setTimeout(function() {
 		countDown();
 		peep();
 	}, 4001);
 	setTimeout(function() {
 		stopGame = true;
-		console.log('stopGame is now true');
 	}, 19000);
-})
+	setTimeout(function() {
+		document.getElementById('total_moles').textContent = 
+			"You whacked " + points + " moles!";
+		gameOver.style.display = 'inline';
+	}, 20000);
+}
 
 function bonk() {
 	console.log('this.classList: ' + this.classList + ' & this.id: ' + this.id)
@@ -116,4 +128,8 @@ for (var i=0; i<moles.length; i++) {
 	moles[i].addEventListener('click', bonk);
 }
 
+btn.addEventListener('click', startGame);
 
+play_again_btn.addEventListener('click', function() {
+	gameOver.style.display = 'none';
+})

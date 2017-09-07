@@ -32,48 +32,65 @@
 			<div class='num'>whack</div>
 		</div>
 		
-		<div>
+		<div id='game_over'>
+			<div id='game_over_mssg'>
+				<p>Nice Whacking!</p>
+				<p id='total_moles'></p>
+			</div>
+			
+			<div id='game_over_options'>
+				<input type="button" id='play_again_btn' value="Play Again">
+			</div>
+		</div>
+		
+		<div id='game_buttons'>
 			<input type='button' id='btn' value='Start Game'>
+			
+			<div id='difficulty'>
+				<div id='difficulty_title'>Difficulty</div>
+				<div id='difficulty_frame'>
+					<div id='difficulty_dot'></div>
+				</div>
+				<div id='difficulty_settings'>
+					<div class='diff_set'>Novice</div>
+					<div class='diff_set'>Expert</div>
+					<div class='diff_set'>Jedi</div>
+				</div>
+			</div>
 		</div>
 		
 		<section id='top_row'>
 			<div class='slot' id='slot1'>
-				<div class='hole' id='hole1'></div>
-<!--				<img src="mole.png" class='mole'>-->
 				<div class='mole'></div>
+				<div class='hole' id='hole1'></div>
 			</div>
 
 			<div class='slot' id='slot2'>
-				<div class='hole' id='hole2'></div>
-<!--				<img src="mole.png" class='mole'>-->
 				<div class='mole'></div>
+				<div class='hole' id='hole2'></div>
 			</div>
 
 			<div class='slot' id='slot3'>
-				<div class='hole' id='hole3'></div>
-<!--				<img src="mole.png" class='mole'>-->
 				<div class='mole'></div>
+				<div class='hole' id='hole3'></div>
 			</div>
 
 		</section>
 		
 		<section id='bottom_row'>
 			<div class='slot' id='slot4'>
-				<div class='hole' id='hole4'></div>
-<!--				<img src="mole.png" class='mole'>-->
 				<div class='mole'></div>
+				<div class='hole' id='hole4'></div>
 			</div>
 			
 			<div class='slot' id='slot5'>
-				<div class='hole' id='hole5'></div>
-<!--				<img src="mole.png" class='mole'>-->
 				<div class='mole'></div>
+				<div class='hole' id='hole5'></div>
 			</div>
 
 			<div class='slot' id='slot6'>
-				<div class='hole' id='hole6'></div>
-<!--				<img src="mole.png" class='mole'>-->
 				<div class='mole'></div>
+				<div class='hole' id='hole6'></div>
 			</div>			
 		
 		</section>

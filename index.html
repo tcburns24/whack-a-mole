@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>Whack A Mole!</title>
+		<link rel="stylesheet" type="" href="styling.css">
+	</head>
+	
+	<body>
+		
+		<section id='banner'>
+			<div id='title_text'>Whack-A-Mole!</div>
+
+			<div id='stats'>
+				<div id='score'>
+					<div id='score_label' class='label'>Score</div>
+					<div id='score_count'>0</div>
+				</div>
+				
+				<div id='timer'>
+					<div id='timer_label' class='label'>Time Remaining</div>
+					<div id='timer_count'>:15</div>
+				</div>
+			</div>
+		</section>
+		
+		<div id='countdown_screen'>
+			<div class='num'>3</div>
+			<div class='num'>2</div>
+			<div class='num'>1</div>
+			<div class='num'>whack</div>
+		</div>
+		
+		<div>
+			<input type='button' id='btn' value='Start Game'>
+		</div>
+		
+		<section id='top_row'>
+			<div class='slot' id='slot1'>
+				<div class='hole' id='hole1'></div>
+<!--				<img src="mole.png" class='mole'>-->
+				<div class='mole'></div>
+			</div>
+
+			<div class='slot' id='slot2'>
+				<div class='hole' id='hole2'></div>
+<!--				<img src="mole.png" class='mole'>-->
+				<div class='mole'></div>
+			</div>
+
+			<div class='slot' id='slot3'>
+				<div class='hole' id='hole3'></div>
+<!--				<img src="mole.png" class='mole'>-->
+				<div class='mole'></div>
+			</div>
+
+		</section>
+		
+		<section id='bottom_row'>
+			<div class='slot' id='slot4'>
+				<div class='hole' id='hole4'></div>
+<!--				<img src="mole.png" class='mole'>-->
+				<div class='mole'></div>
+			</div>
+			
+			<div class='slot' id='slot5'>
+				<div class='hole' id='hole5'></div>
+<!--				<img src="mole.png" class='mole'>-->
+				<div class='mole'></div>
+			</div>
+
+			<div class='slot' id='slot6'>
+				<div class='hole' id='hole6'></div>
+<!--				<img src="mole.png" class='mole'>-->
+				<div class='mole'></div>
+			</div>			
+		
+		</section>
+		
+		<script src="scripts.js"></script>
+	</body>
+
+</html>

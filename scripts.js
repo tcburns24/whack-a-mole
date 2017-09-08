@@ -1,6 +1,9 @@
 var slots = document.getElementsByClassName('slot');
 var holes = document.getElementsByClassName('hole');
 var moles = document.getElementsByClassName('mole');
+var top_row = document.getElementById('top_row');
+var bottom_row = document.getElementById('bottom_row');
+var banner = document.getElementById('banner');
 var prevHole;
 let stopGame;
 var btn = document.getElementById('btn');
@@ -10,6 +13,9 @@ var points = 0;
 var nums = document.getElementsByClassName('num');
 var gameOver = document.getElementById('game_over');
 var play_again_btn = document.getElementById('play_again_btn');
+var dot = document.getElementById('difficulty_dot');
+var diff_sets = document.getElementsByClassName('diff_set');
+var diff_frame = document.getElementById('difficulty_frame');
 
 function randomTime(min, max) {
 	return Math.round(Math.random() * (max - min) + min);
@@ -26,8 +32,49 @@ function randomSlot(slots) {
 	return currentSlot;
 }
 
+function slide() {
+	if (dot.className.includes('novice')) {
+		dot.classList.remove('novice');
+		dot.classList.add('expert');
+		
+		diff_frame.classList.remove('novice');
+		diff_frame.classList.add('expert');
+		
+		diff_sets[0].classList.remove('select');
+		diff_sets[1].classList.add('select');
+		
+	} else if (dot.className.includes('expert')) {
+		dot.classList.remove('expert');
+		dot.classList.add('jedi');
+		
+		diff_frame.classList.remove('expert');
+		diff_frame.classList.add('jedi');
+		
+		diff_sets[1].classList.remove('select');
+		diff_sets[2].classList.add('select');
+		
+	} else if (dot.className.includes('jedi')) {
+		dot.classList.remove('jedi');
+		dot.classList.add('novice');
+		
+		diff_frame.classList.remove('jedi');
+		diff_frame.classList.add('novice');
+		
+		diff_sets[2].classList.remove('select');
+		diff_sets[0].classList.add('select');
+	}
+}
+
+dot.addEventListener('click', slide);
+
 function peep() {
-	var time = randomTime(650, 1400);
+	if (dot.className == 'novice') {
+		var time = randomTime(800, 1200);
+	} else if (dot.className == 'expert') {
+		var time = randomTime(500, 750);
+	} else if (dot.className == 'jedi') {
+		var time = randomTime(250, 400);
+	}
 	var randMole = randomSlot(moles);
 	randMole.classList.add('peeking');
 	setTimeout(function() {
@@ -88,12 +135,6 @@ function startCountdown() {
   }, 4000)
 }
 
-// Sep 7: 
-// Build a "you whacked X moles" div
-// Add "play again" button on div
-// "play again" button resets score & timer
-
-
 // START GAME:
 function startGame() {
 	timeRemaining = 15;
@@ -112,6 +153,9 @@ function startGame() {
 		document.getElementById('total_moles').textContent = 
 			"You whacked " + points + " moles!";
 		gameOver.style.display = 'inline';
+		top_row.style.opacity = 0.2;
+		bottom_row.style.opacity = 0.2;
+		banner.style.opacity = 0.2;
 	}, 20000);
 }
 
@@ -132,4 +176,7 @@ btn.addEventListener('click', startGame);
 
 play_again_btn.addEventListener('click', function() {
 	gameOver.style.display = 'none';
+	top_row.style.opacity = 1.0;
+	bottom_row.style.opacity = 1.0;
+	banner.style.opacity = 1.0;
 })

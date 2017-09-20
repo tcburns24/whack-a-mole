@@ -219,7 +219,7 @@ html {
 
 .mole {
 	position: absolute;
-	background: url('/public/images/mole.png') bottom center no-repeat;
+	background: url('/images/mole.png') bottom center no-repeat;
 	background-size: 75%;
 	top: 100%;
 	width: 100%;

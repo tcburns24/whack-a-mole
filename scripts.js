@@ -86,13 +86,17 @@ function peep() {
 }
 
 function countDown() {
-	setInterval(function() {
+	var interval = setInterval(function() {
 		if (timeRemaining > 0) {
 			timeRemaining -= 1;
 			timer_count.textContent = ":" + timeRemaining;
+		} else {
+			clearInterval(interval);
 		}
 	}, 1000);
 }
+
+// set setInterval to a variable, then clear it, otherwise it'll run forever. 
 
 function startCountdown() {
 	for (var i=0; i<nums.length; i++) {
@@ -160,12 +164,19 @@ function startGame() {
 }
 
 function bonk() {
-	console.log('this.classList: ' + this.classList + ' & this.id: ' + this.id)
 	if (this.className.includes('peeking')) {
 		points++;
 		score_count.textContent = points;
 		this.classList.remove('peeking');
+		this.parentElement.children[1].textContent = "WHACKED!";
 	}
+	setTimeout(function() {
+		for (var i=0; i<moles.length; i++) {
+			if (holes[i].textContent == "WHACKED!") {
+				holes[i].textContent = "";
+			}
+		}
+	}, 190)
 }
 
 for (var i=0; i<moles.length; i++) {
@@ -179,4 +190,16 @@ play_again_btn.addEventListener('click', function() {
 	top_row.style.opacity = 1.0;
 	bottom_row.style.opacity = 1.0;
 	banner.style.opacity = 1.0;
+	btn.style.transform = "rotate(360deg)";
+	btn.style.borderWidth = "thick";
+	btn.style.borderColor = "red";
+	setTimeout(function() {
+		btn.style.borderWidth = "medium";
+		btn.style.borderColor = "silver";
+		btn.style.transform = "rotate(0deg)"
+	}, 550);
+	timer_count.textContent = ":15";
+	score_count.textContent = "0";
 })
+
+

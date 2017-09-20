@@ -132,14 +132,29 @@ html {
 	background: linear-gradient(to right bottom, #000000, #06b9d3);
 }
 
+#difficulty_dot.novice:hover {
+	left: 3%;
+	background: linear-gradient(to right bottom, #06b9d3, #000000);
+}
+
 #difficulty_dot.expert {
 	left: 41%;
 	background: linear-gradient(to right bottom, #000000, #db8008);
 }
 
+#difficulty_dot.expert:hover {
+	left: 41%;
+	background: linear-gradient(to right bottom, #db8008, #000000);
+}
+
 #difficulty_dot.jedi {
 	left: 77%;
-	background: linear-gradient(to right bottom, #000000, #ce0000);
+	background: linear-gradient(to right bottom, black, #494949);
+}
+
+#difficulty_dot.jedi:hover {
+	left: 77%;
+	background: linear-gradient(to right bottom, #494949, black);
 }
 
 #difficulty_settings {
@@ -204,7 +219,7 @@ html {
 
 .mole {
 	position: absolute;
-	background: url('mole.png') bottom center no-repeat;
+	background: url('/public/images/mole.png') bottom center no-repeat;
 	background-size: 75%;
 	top: 100%;
 	width: 100%;

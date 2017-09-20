@@ -202,4 +202,3 @@ play_again_btn.addEventListener('click', function() {
 	score_count.textContent = "0";
 })
 
-
